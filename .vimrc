@@ -23,7 +23,8 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.md let pdfF = expand("%:r") . ".pdf" 
 autocmd BufNewFile,BufRead *.tex let fi = expand("%:r")  
 autocmd BufNewFile,BufRead *.md map <buffer> <C-b> :w <CR> :execute ':!pandoc % -V geometry:margin=1in -o ' . pdfF  <CR> 
-autocmd BufNewFile,BufRead *.m map <buffer> <C-b> :w <CR> :execute ':!octave --no-gui %' <CR>
+autocmd BufNewFile,BufRead *.m map <buffer> <C-b> :w <CR> :execute ':!octave --no-gui %' <CR> 
+autocmd BufNewFile,BufRead *.m map <buffer> <C-n> :w <CR> :execute ":!octave --no-gui --eval \"submit(); pause\"" <CR> 
 autocmd BufNewFile,BufRead *.tex map <buffer> <C-b> :w <CR> :execute ':!bibtex ' . fi <CR>  :! pdflatex % <CR>
 autocmd BufNewFile,BufRead *.tex map <buffer> <C-n> :execute ':!aspell --lang=en --mode=tex check %' 
 set sw=4
